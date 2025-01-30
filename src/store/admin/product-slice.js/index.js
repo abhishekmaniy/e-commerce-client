@@ -10,7 +10,7 @@ export const addNewProduct = createAsyncThunk(
   "/products/addnewproduct",
   async (formData) => {
     const result = await axios.post(
-      `${BASE_URL}/api/admin/products/add`,
+      `${import.meta.env.BASE_URL}/api/admin/products/add`,
       formData,
       {
         headers: {
@@ -23,7 +23,7 @@ export const addNewProduct = createAsyncThunk(
 );
 
 export const fetchAllProducts = createAsyncThunk(
-  `${BASE_URL}/api/products/fetchAllProducts`,
+  `${import.meta.env.BASE_URL}/api/products/fetchAllProducts`,
   async () => {
     const result = await axios.get(
       "http://localhost:5000/api/admin/products/get"
@@ -36,7 +36,7 @@ export const editProduct = createAsyncThunk(
   "/products/editProduct",
   async ({ id, formData }) => {
     const result = await axios.put(
-      `${BASE_URL}/api/admin/products/edit/${id}`,
+      `${import.meta.env.BASE_URL}/api/admin/products/edit/${id}`,
       formData,
       {
         headers: {
@@ -52,7 +52,7 @@ export const deleteProduct = createAsyncThunk(
   "/products/deleteProduct",
   async (id) => {
     const result = await axios.delete(
-      `${BASE_URL}/api/admin/products/delete/${id}`
+      `${import.meta.env.BASE_URL}/api/admin/products/delete/${id}`
     );
     return result?.data;
   }

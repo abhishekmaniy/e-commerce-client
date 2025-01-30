@@ -7,10 +7,10 @@ const initialState = {
 };
 
 export const addReview = createAsyncThunk(
-  `${BASE_URL}/api/order/addReview`,
+  `/order/addReview`,
   async (formData) => {
     const response = await axios.post(
-      `${BASE_URL}/api/shop/review/add`,
+      `${import.meta.env.BASE_URL}/api/shop/review/add`,
       formData
     );
 
@@ -20,7 +20,7 @@ export const addReview = createAsyncThunk(
 
 export const getReviews = createAsyncThunk("/order/getReviews", async (id) => {
   const response = await axios.get(
-    `${BASE_URL}/api/shop/review/${id}`
+    `${import.meta.env.BASE_URL}/api/shop/review/${id}`
   );
 
   return response.data;
