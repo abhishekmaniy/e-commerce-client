@@ -11,7 +11,7 @@ export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
     const response = await axios.post(
-      `${import.meta.env.BASE_URL}/api/auth/register`,
+      `${import.meta.env.VITE_BASE_URL}/api/auth/register`,
       formData,
       { withCredentials: true }
     );
@@ -21,8 +21,9 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
+  console.log(import.meta.env.VITE_BASE_URL)
   const response = await axios.post(
-    `${import.meta.env.BASE_URL}/api/auth/login`,
+    `${process.env.BASVITE_BASE_URLE_URL}/api/auth/login`,
     formData,
     { withCredentials: true }
   );
@@ -32,7 +33,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
   const response = await axios.post(
-    `${import.meta.env.BASE_URL}/api/auth/logout`,
+    `${import.meta.env.VITE_BASE_URL}/api/auth/logout`,
     {},
     {
       withCredentials: true,
@@ -43,8 +44,10 @@ export const logoutUser = createAsyncThunk("/auth/logout", async () => {
 });
 
 export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
+  console.log(process.env.VITE_BASE_URL)
+
   const response = await axios.get(
-    `${import.meta.env.BASE_URL}/api/auth/check-auth`,
+    `${process.env.VITE_BASE_URL}/api/auth/check-auth`,
     {
       withCredentials: true,
       headers: {
